@@ -12,13 +12,16 @@ def computer_list(request):
         return JsonResponse({ "data": computer_list_serializer.data })
     
     if request.method == 'POST': 
-        computer_serializer = ComputerSerializer(request.data)
-        if computer_serializer.is_valid(): 
-            computer_serializer.save()
-            return JsonResponse({ "message": "Phone created succesfully" })
-        else: 
-            return JsonResponse({ "message": "Invalid data, please check the info submited" })
+        return JsonResponse({"data": "product added succesfullu"})
+        # computer_serializer = ComputerSerializer(request.data)
+        # if computer_serializer.is_valid(): 
+        #     computer_serializer.save()
+        #     return JsonResponse({ "message": "Phone created succesfully" })
+        # else: 
+            # return JsonResponse({ "message": "Invalid data, please check the info submited" })
 
+
+api_view(['GET'])
 def computer_detail(request, pk): 
     computer = Computer.objects.get(pk=pk)
     computer_serializer = ComputerSerializer(computer)
